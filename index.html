@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bootstrap Form Example</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#myModal"
+      >
+        Create new Job
+      </button>
+    </header>
+    <div class="wrapper">
+      <div class="container left-col col-2" id="resultContainer"></div>
+      <div class="container right-col col-10">Content</div>
+      <div
+        class="modal fade"
+        id="myModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">New Create a job</h4>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container mt-12">
+                <div class="form-container">
+                  <div class="form-group client-details">
+                    <h2>Client Details</h2>
+                    <form>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="clientFirstName"
+                            placeholder="First Name"
+                            required
+                          />
+                        </div>
+                        <div class="form-group col-md-6">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="clientLastName"
+                            placeholder="Last Name"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="tel"
+                          class="form-control"
+                          id="clientPhone"
+                          placeholder="Phone"
+                          required
+                        />
+                        <span id="phoneError"></span>
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="clientEmail"
+                          placeholder="Email (optional)"
+                        />
+                        <span id="emailError"></span>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="form-group job-types">
+                    <h2>Job Types</h2>
+                    <form>
+                      <div class="form-row">
+                        <div class="form-group col-md-12">
+                          <select class="form-control" id="jobCategory">
+                            <option>Category 1</option>
+                            <option>Category 2</option>
+                            <option>Category 3</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <select class="form-control" id="jobSource">
+                            <option>Source 1</option>
+                            <option>Source 2</option>
+                            <option>Source 3</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <textarea
+                          class="form-control"
+                          id="jobDescription"
+                          rows="3"
+                          placeholder="Job description (optional)"
+                        ></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="form-group service-location">
+                    <h2>Service Location</h2>
+                    <form>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="addressInput"
+                          placeholder="Address"
+                          required
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cityInput"
+                          placeholder="City"
+                          required
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="stateInput"
+                          placeholder="State"
+                          required
+                        />
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="zipcodeInput"
+                            placeholder="Zipcode"
+                            required
+                          />
+                        </div>
+                        <div class="form-group col-md-6">
+                          <div class="input-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="areaInput"
+                              placeholder="Area"
+                              required
+                            />
+                            <span id="areaError"></span>
+
+                            <div class="input-group-append">
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Option 1</a>
+                                <a class="dropdown-item" href="#">Option 2</a>
+                                <a class="dropdown-item" href="#">Option 3</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="form-group scheduled">
+                    <h2>Scheduled</h2>
+                    <form>
+                      <div class="form-group">
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="startDateInput"
+                          required
+                        />
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <div class="input-group">
+                            <input
+                              type="time"
+                              class="form-control"
+                              id="startTimeInput"
+                              name="startTime"
+                              required
+                            />
+                            <div class="input-group-append">
+                              <span class="input-group-text"
+                                ><i class="fa fa-clock-o"></i
+                              ></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <div class="input-group">
+                            <input
+                              type="time"
+                              class="form-control"
+                              id="endTimeInput"
+                              name="endTime"
+                              required
+                            />
+                            <div class="input-group-append">
+                              <span class="input-group-text"
+                                ><i class="fa fa-clock-o"></i
+                              ></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <select class="form-control" id="testSelectInput">
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                          </select>
+                          <div class="input-group-append">
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Option 1</a>
+                              <a class="dropdown-item" href="#">Option 2</a>
+                              <a class="dropdown-item" href="#">Option 3</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary" id="submitButton">
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="/js/vanilla.js"></script>
+    <!-- <script src="/js/ajax.js"></script> -->
+  </body>
+</html>
